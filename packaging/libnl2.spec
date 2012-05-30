@@ -7,6 +7,7 @@ Release:    2
 Group:      System/Network
 License:    GNU LESSER GENERAL PUBLIC LICENSE Version 2.1
 Source0:    %{name}-%{version}.tar.gz
+Source1001: packaging/libnl2.manifest 
 BuildRequires:  bison
 BuildRequires:  flex
 
@@ -33,6 +34,7 @@ libnl2.
 ./autogen.sh
 
 %build
+cp %{SOURCE1001} .
 CFLAGS="$RPM_OPT_FLAGS" \
 	./configure \
 	--prefix=/usr
@@ -48,10 +50,12 @@ rm -rf %{buildroot}
 rm %{buildroot}/usr/etc/libnl/pktloc
 
 %files
+%manifest libnl2.manifest
 %defattr(-,root,root,-)
 %{_libdir}/libnl*.so.*
 
 %files devel
+%manifest libnl2.manifest
 %defattr(-,root,root,-)
 %{_includedir}/*
 %{_libdir}/pkgconfig/*
