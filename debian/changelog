@@ -1,7 +1,7 @@
 libnl2 (2.0-1slp2+2) unstable; urgency=low
 
   * Change maintainers
-  * Git: pkgs/l/libnl2
+  * Git: slp/pkgs/l/libnl2
   * Tag: libnl2_2.0-1slp2+2
 
  -- Sunkey Lee <yuvjjang.lee@samsung.com>  Mon, 05 Mar 2012 20:16:05 +0900
@@ -9,7 +9,7 @@ libnl2 (2.0-1slp2+2) unstable; urgency=low
 libnl2 (2.0-1slp2+1) unstable; urgency=low
 
   * Upload pkgs to a pkg server
-  * Git: pkgs/l/libnl2
+  * Git: slp/pkgs/l/libnl2
   * Tag: libnl2_2.0-1slp2+1
 
  -- Sunkey Lee <yuvjjang.lee@samsung.com>  Mon, 05 Mar 2012 19:36:51 +0900
