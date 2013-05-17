@@ -1,3 +1,6 @@
+* Fri May 17 2013 Anas Nashif <anas.nashif@intel.com> submit/tizen/20130517.041613@4a8d0d4
+- run %configure to install correctly
+
 * Fri May 17 2013 Anas Nashif <anas.nashif@intel.com> submit/tizen/20130517.051343@4c9b692
 - call /sbin/ldconfig
 
