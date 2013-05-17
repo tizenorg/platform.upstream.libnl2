@@ -3,7 +3,7 @@ Summary:    Library for netlink sockets
 Version:    2.0
 Release:    2
 Group:      System/Network
-License:    GPL-2.1
+License:    LGPL-2.1
 Source0:    %{name}-%{version}.tar.gz
 BuildRequires:  bison
 BuildRequires:  flex
@@ -28,21 +28,16 @@ libnl2.
 %prep
 %setup -q
 
-./autogen.sh
 
 %build
-CFLAGS="$RPM_OPT_FLAGS" \
-	./configure \
-	--prefix=/usr
+%autogen.sh
+%configure 
 
 make -j1
 
 %install
-rm -rf %{buildroot}
 %make_install
-
-rm %{buildroot}/usr/etc/libnl/pktloc
-
+rm -f %{buildroot}/etc/libnl/pktloc
 
 %post -p /sbin/ldconfig
 
@@ -50,6 +45,7 @@ rm %{buildroot}/usr/etc/libnl/pktloc
 
 %files
 %defattr(-,root,root,-)
+%license COPYING
 %{_libdir}/libnl*.so.*
 
 %files devel
