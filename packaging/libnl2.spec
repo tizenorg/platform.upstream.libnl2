@@ -1,11 +1,9 @@
-#sbs-git:slp/pkgs/l/libnl2
-
 Name:       libnl2
 Summary:    Library for netlink sockets
 Version:    2.0
 Release:    2
 Group:      System/Network
-License:    GNU LESSER GENERAL PUBLIC LICENSE Version 2.1
+License:    GPL-2.1
 Source0:    %{name}-%{version}.tar.gz
 BuildRequires:  bison
 BuildRequires:  flex
@@ -37,8 +35,6 @@ CFLAGS="$RPM_OPT_FLAGS" \
 	./configure \
 	--prefix=/usr
 
-#No much jobs, make sure -j1
-#make %{?jobs:-j%jobs}
 make -j1
 
 %install
@@ -46,6 +42,11 @@ rm -rf %{buildroot}
 %make_install
 
 rm %{buildroot}/usr/etc/libnl/pktloc
+
+
+%post -p /sbin/ldconfig
+
+%postun -p /sbin/ldconfig
 
 %files
 %defattr(-,root,root,-)
