@@ -5,6 +5,7 @@ Release:    2
 Group:      System/Network
 License:    LGPL-2.1
 Source0:    %{name}-%{version}.tar.gz
+Source1001: 	libnl2.manifest
 BuildRequires:  bison
 BuildRequires:  flex
 
@@ -27,6 +28,7 @@ libnl2.
 
 %prep
 %setup -q
+cp %{SOURCE1001} .
 
 
 %build
@@ -44,11 +46,13 @@ rm -f %{buildroot}/etc/libnl/pktloc
 %postun -p /sbin/ldconfig
 
 %files
+%manifest %{name}.manifest
 %defattr(-,root,root,-)
 %license COPYING
 %{_libdir}/libnl*.so.*
 
 %files devel
+%manifest %{name}.manifest
 %defattr(-,root,root,-)
 %{_includedir}/*
 %{_libdir}/pkgconfig/*
