@@ -3,7 +3,7 @@ Summary:    Library for netlink sockets
 Version:    2.0
 Release:    2
 Group:      System/Network
-License:    LGPL-2.1
+License:    LGPL-2.1+
 Source0:    %{name}-%{version}.tar.gz
 Source1001: 	libnl2.manifest
 BuildRequires:  bison
@@ -39,7 +39,11 @@ make -j1
 
 %install
 %make_install
+
+mkdir -p %{buildroot}/usr/share/license
+cp %{_builddir}/%{buildsubdir}/COPYING %{buildroot}/usr/share/license/%{name}
 rm -f %{buildroot}/etc/libnl/pktloc
+
 
 %post -p /sbin/ldconfig
 
@@ -48,8 +52,8 @@ rm -f %{buildroot}/etc/libnl/pktloc
 %files
 %manifest %{name}.manifest
 %defattr(-,root,root,-)
-%license COPYING
 %{_libdir}/libnl*.so.*
+/usr/share/license/%{name}
 
 %files devel
 %manifest %{name}.manifest
